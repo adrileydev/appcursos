@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  {{title}}
+</div>
+<div>
+  <ul>
+    <h1>Idioma</h1>
+    <li *ngFor="let c of cuisines |async ">
+      {{c.$value |uppercase}} {{c.$key}}
+    </li>
+  </ul>
+</div>
+<h1>Restaurantes </h1>
+<div>
+  <ul>
+    <li *ngFor="let r of restaurant |async">
+       <div class="banner">
+          {{r.$value |uppercase}}
+
+       </div>
+    </li>
+  </ul>
+</div>
