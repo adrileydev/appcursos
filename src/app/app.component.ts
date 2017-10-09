@@ -10,8 +10,8 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent implements OnInit {
   user = null;
-  cuisines;//: any[] ; //FirebaseListObservable<any[]>;
-  restaurant;//:any[];
+  cuisines :FirebaseListObservable<any[]>;
+  restaurants :FirebaseListObservable<any[]>;
 
  private subscription;
   constructor( private db: AngularFireDatabase) {
@@ -22,12 +22,25 @@ export class AppComponent implements OnInit {
     )*/
     // console.log(db);
    }
+
+   Add(){
+     alert("Teste de Sistemas Adicionar ");
+
+   }
+    Update(){
+     alert("Teste de Sistemas Update ");
+
+   }
+    Remove(){
+     alert("Teste de Sistemas Deletar ");
+
+   }
     loginWithGoogle() {
    // this.auth.loginWithGoogle();
   }
 ngOnInit() {
   this.cuisines = this.db.list('/cuisines');
-  this.restaurant = this.db.list('/restaurant');
+  this.restaurants = this.db.list('/restaurants');
  // this.subscription= this.db.list('/restaurant').subscribe(x=>{ this.restaurant = x;})
 }
   /*  ngOnDestroy() {

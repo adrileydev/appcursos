@@ -7,6 +7,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated/';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './shared/auth.service';
+import { LibsService } from "./teste/libs.service";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { AuthService } from './shared/auth.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,LibsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
