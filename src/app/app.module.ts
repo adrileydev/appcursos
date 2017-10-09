@@ -14,7 +14,7 @@ import { AuthService } from './shared/auth.service';
   ],
   imports: [
     BrowserModule,
-     AngularFireModule.initializeApp(environment.firBConfig, 'dev02'),
+    AngularFireModule.initializeApp(environment.firBConfig, 'dev02'),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],

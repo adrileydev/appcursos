@@ -19,21 +19,15 @@ export class AppComponent implements OnInit {
  //     (user) => this.user = user);
    //     this.cuisines = this.db.list('/cuisines');
 
-
     )*/
     // console.log(db);
-
-
-
-
-
    }
     loginWithGoogle() {
    // this.auth.loginWithGoogle();
   }
 ngOnInit() {
   this.cuisines = this.db.list('/cuisines');
-   this.restaurant = this.db.list('/restaurant');
+  this.restaurant = this.db.list('/restaurant');
  // this.subscription= this.db.list('/restaurant').subscribe(x=>{ this.restaurant = x;})
 }
   /*  ngOnDestroy() {
