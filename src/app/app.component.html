@@ -1,19 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
 </div>
 <div>
   <ul>
     <h1>Idioma</h1>
-    <li *ngFor="let c of cuisines |async ">
-      {{c.$value + ' -  '+ c.$key}}
+    <li *ngFor="let c of cuisines|async ">
+       {{c.$value + ' -  '+ c.$key}}
     </li>
   </ul>
 </div>
-<h1>Restaurantes </h1>
+<h1>  Restaurantes </h1>
 <div>
   <ul>
-    <li *ngFor="let r of restaurants |async">
-           {{r.$value  }}
+    <li *ngFor="let r of restaurants|async">
+           {{r.$name}}
     </li>
   </ul>
 </div>

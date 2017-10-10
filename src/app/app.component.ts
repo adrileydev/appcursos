@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './shared/auth.service';
 
-import { AngularFireDatabase, FirebaseListObservable } from  'angularfire2/database-deprecated/'; //'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated/'; //'angularfire2/database';
 import * as firebase from 'firebase/app';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,8 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent implements OnInit {
   user = null;
-  cuisines :FirebaseListObservable<any[]>;
-  restaurants :FirebaseListObservable<any[]>;
+  cuisines: FirebaseListObservable<any[]>;
+  restaurants: Observable<any[]>;
 
  private subscription;
   constructor( private db: AngularFireDatabase) {
@@ -23,25 +25,17 @@ export class AppComponent implements OnInit {
     // console.log(db);
    }
 
-   Add(){
-     alert("Teste de Sistemas Adicionar ");
-
-   }
-    Update(){
-     alert("Teste de Sistemas Update ");
-
-   }
-    Remove(){
-     alert("Teste de Sistemas Deletar ");
-
-   }
     loginWithGoogle() {
    // this.auth.loginWithGoogle();
   }
 ngOnInit() {
   this.cuisines = this.db.list('/cuisines');
-  this.restaurants = this.db.list('/restaurants');
+  this.restaurants = this.db.list('/restaurants').map(restaurants => {
+    console.log('before map:', restaurants);
+    return restaurants;
+  });
  // this.subscription= this.db.list('/restaurant').subscribe(x=>{ this.restaurant = x;})
+
 }
   /*  ngOnDestroy() {
       //Called once, before the instance is destroyed.
