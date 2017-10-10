@@ -31,8 +31,17 @@ export class AppComponent implements OnInit {
 ngOnInit() {
   this.cuisines = this.db.list('/cuisines');
   this.restaurants = this.db.list('/restaurants').map(restaurants => {
-    console.log('before map:', restaurants);
-    return restaurants;
+   console.log('before map:', restaurants);
+   restaurants.map(restaurant=>{
+     //restaurant.cuisineType = this.db.object('/cusines' + restaurant.cuisines)
+     restaurant.featureTypes =[];
+     for(var f in restaurant.features)
+      restaurant.featureTypes.push(this.db.object('/features'+ f));
+// console.log(restaurants);
+   });
+  ///  console.log("After map",restaurants);
+   return restaurants;
+
   });
  // this.subscription= this.db.list('/restaurant').subscribe(x=>{ this.restaurant = x;})
 

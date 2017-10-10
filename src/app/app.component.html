@@ -11,8 +11,13 @@
 <h1>  Restaurantes </h1>
 <div>
   <ul>
-    <li *ngFor="let r of restaurants|async">
-           {{r.$name}}
-    </li>
+    <li *ngFor="let r of restaurants | async">
+           {{r.name}}
+           <ul>
+               <li *ngFor="let f of  r.featureTypes">
+                  {{(f | async)?.$value}}
+              </li>
+           </ul>
+           </li>
   </ul>
 </div>
